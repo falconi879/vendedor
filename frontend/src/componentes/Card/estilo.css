@@ -1,0 +1,87 @@
+.card {
+    background-color: #102347;
+    border-radius: 10px;
+    padding: 30px 10px;
+    margin-bottom: 10px;
+}
+
+.titulo {
+    color: blue;
+}
+
+#vendas {
+    padding: 40px 10px;
+}
+
+.controle {
+    height: 46px;
+    background-color: #181818;
+    border: 1px solid red;
+    border-radius: 5px;
+    color: antiquewhite;
+    padding: 0 20px;
+    font-size: 18px;
+}
+
+.venda-container {
+    margin-bottom: 16px;
+    max-width: 300px;
+}
+
+.tabela {
+    width: 100%;
+    border-spacing: 0;
+    border-collapse: collapse;
+}
+
+.tabela thead {
+    height: 55px;
+    font-size: 16px;
+    color: aliceblue;
+    font-weight: 700;
+    align-items: center;
+}
+
+.tabela tbody {
+    font-size: 14px;
+    font-weight: 400;
+    height: 74px;
+    color: beige;
+    text-align: center;
+}
+
+.tabela tbody tr {
+    height: 74px;
+    border-top: 1px solid #FFF;
+}
+
+.tabela tbody tr:hover>td {
+    background-color: darkblue;
+}
+
+
+/*cor das linha impares mais escuras (tabela)*/
+
+.tabela tbody tr:nth-child(odd) {
+    background-color: black;
+}
+
+.show576 {
+    display: none;
+}
+
+@media(min-width: 576px) {
+    .show576 {
+        display: table-cell;
+    }
+}
+
+.show976 {
+    display: none;
+}
+
+@media (min-width: 976px) {
+    .show976 {
+        display: table-cell;
+    }
+}
