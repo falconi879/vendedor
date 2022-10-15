@@ -10,6 +10,11 @@
     cursor: pointer;
 }
 
+.botao-notificar-container {
+    align-items: center;
+}
+
 .botao-notificar img {
+    align-items: center;
     width: 19px;
 }
