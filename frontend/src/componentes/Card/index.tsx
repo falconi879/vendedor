@@ -4,6 +4,8 @@ import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import { useEffect, useState } from 'react';
 import axios from 'axios';
+import { BASE_URL } from "../../utils/request";
+import { Sale } from '../../modelos/sale';
 function Card() {
 
     const min =new Date(new Date().setDate(new Date().getDate()-365))
@@ -11,9 +13,11 @@ function Card() {
     const [minDate, setMinDate] = useState(min);
     const [maxDate, seMaxDate] = useState(new Date());
 
+    const [sales, setSales] = useState<Sale[]>([]);
+
     useEffect(()=>{
-        axios.get("https://vendedor-vendor.herokuapp.com/sales").then(response =>{
-            console.log(response.data);
+        axios.get(`${BASE_URL}/sales`).then(response =>{
+            setSales(response.data.content);
         })
 
     }, []);
@@ -54,13 +58,16 @@ function Card() {
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <td className="show976">#1</td>
-                            <td className="show576">08/07/22</td>
-                            <td>Anakim</td>
-                            <td className="show976">15</td>
-                            <td className="show976">3</td>
-                            <td>R$ 500.00</td>
+
+                        {sales.map(sale =>{
+                            return(
+                                <tr key={sale.id}>
+                            <td className="show976">{sale.id}</td>
+                            <td className="show576">{new Date(sale.date).toLocaleDateString()}</td>
+                            <td>{sale.sellerName}</td>
+                            <td className="show976">{sale.visited}</td>
+                            <td className="show976">{sale.deals}</td>
+                            <td>R$ {sale.amount.toFixed(2)}</td>
                             <td>
                                 <div className="botao-notificar-container">
                                     <NotificacaoBotao />
@@ -68,33 +75,10 @@ function Card() {
                             </td>
 
                         </tr>
-                        <tr>
-                            <td className="show976">#2</td>
-                            <td className="show576">08/07/22</td>
-                            <td>Anakim</td>
-                            <td className="show976">14</td>
-                            <td className="show976">2</td>
-                            <td>R$ 500.00</td>
-                            <td>
-                                <div className="botao-notificar-container">
-                                    <NotificacaoBotao />
-                                </div>
-                            </td>
 
-                        </tr>
-                        <tr>
-                            <td className="show976">#3</td>
-                            <td className="show576">08/07/22</td>
-                            <td>Anakim</td>
-                            <td className="show976">12</td>
-                            <td className="show976">8</td>
-                            <td>R$ 500.00</td>
-                            <td>
-                                <div className="botao-notificar-container">
-                                    <NotificacaoBotao />
-                                </div>
-                            </td>
-                        </tr>
+                            )
+                        })}
+                        
                     </tbody>
                 </table>
             </div>
