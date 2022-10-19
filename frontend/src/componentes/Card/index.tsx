@@ -76,7 +76,7 @@ function Card() {
                             <td>R$ {sale.amount.toFixed(2)}</td>
                             <td>
                                 <div className="botao-notificar-container">
-                                    <NotificacaoBotao />
+                                    <NotificacaoBotao saleId={sale.id} />
                                 </div>
                             </td>
 
