@@ -8,8 +8,8 @@ function Cabecalho() {
 
                 <img src={icon} alt="" />
                 <h1>SMS</h1>
-                <p>Vamos que Vamos
-                    <a href="#">@andreRelhasFalconi</a>
+                <p>
+                    <a href="#">Andre Relhas Falconi</a>
                 </p>
             </div>
         </header>
