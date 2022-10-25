@@ -30,7 +30,7 @@ function Card() {
 
     return (
         <div className="card">
-            <h2 className="titulo">Vend/as</h2>
+            <h2 className="titulo">Vendas</h2>
             <div>
                 <div className="venda-container">
                     <DatePicker
@@ -60,7 +60,7 @@ function Card() {
                             <th className="show976">Visitas</th>
                             <th className="show976">Vendas</th>
                             <th>Total</th>
-                            <th>Notificare</th>
+                            <th>Notificar</th>
                         </tr>
                     </thead>
                     <tbody>
